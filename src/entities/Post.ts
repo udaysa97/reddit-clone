@@ -16,7 +16,7 @@ export class Post {
   @Property({type: 'date', onUpdate: () => new Date() })
   updatedAt = new Date();
 
-  @Field()
+  @Field()      // If we dont add this it wont be exposed to external queries. So graphQL wont know this feild
   @Property({type: 'text'}) // tells it is a database property
   title!: string;
 
