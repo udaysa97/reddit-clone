@@ -3,8 +3,8 @@ import { Field, Int, ObjectType } from "type-graphql";
 
 @ObjectType() // without this we could not pass it as array type to posts resolver
 @Entity()
-export class Post {
-  @Field(()=> Int)    // if we dont add this graph ql wont infer this data
+export class User {
+  @Field()    // if we dont add this graph ql wont infer this data
   @PrimaryKey()
   id!: number;
 
@@ -16,10 +16,15 @@ export class Post {
   @Property({type: 'date', onUpdate: () => new Date() })
   updatedAt = new Date();
 
-  @Field()      // If we dont add this it wont be exposed to external queries. So graphQL wont know this feild
-  @Property({type: 'text'}) // tells it is a database property
-  title!: string;
+  @Field()      
+  @Property({type: 'text', unique: true}) 
+  username!: string;
+
+      // No Feild property hence no one can select password in graph query
+  @Property({type: 'text'}) 
+  password!: string;
 
 
 }
+
 // on running npx mikro-orm migration:crete it creates a sql command for us. To force cerrtain datatypes in the command we add {type}

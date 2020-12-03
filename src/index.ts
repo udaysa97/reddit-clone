@@ -8,6 +8,7 @@ import {ApolloServer} from 'apollo-server-express';
 import {buildSchema} from 'type-graphql'
 import { HelloResolver } from "./resolvers/hello";
 import { PostResolver } from "./resolvers/post";
+import { UserResolver } from "./resolvers/user";
 
 const main = async()=>{
     const orm = await MikroORM.init(microConfig); // connect to DB
@@ -26,8 +27,8 @@ const app = express();
 // })
 
 const apolloServer = new ApolloServer({
-schema: await buildSchema({
-    resolvers: [HelloResolver, PostResolver],
+schema: await buildSchema({ // SIDE NOTE: whenever npm intalling, If the repo already contains .ts files we donmt need to install types for typescript. it was needed for graph. wont be needed for Argon
+    resolvers: [HelloResolver, PostResolver, UserResolver],
     validate: false,
 }),
 context: () => ({em : orm.em })   // a special; object accesible by all resolvers

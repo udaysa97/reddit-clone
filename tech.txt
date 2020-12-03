@@ -1,0 +1,7 @@
+typeScript
+mikro-orm
+postgreSQL
+graphql
+appolo-server-express
+express(ofc)
+Argon2(can use bcrypt)
