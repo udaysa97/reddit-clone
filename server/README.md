@@ -1,6 +1,6 @@
 # reddit-clone
 
-This is a clone of reddit
+This is a clone of reddit (backend)
 
 What we need to know?
 TypeScript
