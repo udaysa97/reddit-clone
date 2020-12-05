@@ -1,7 +1,34 @@
 typeScript
 mikro-orm
 postgreSQL
-graphql
+graphql with ts types
 appolo-server-express
-express(ofc)
+express(ofc) 
 Argon2(can use bcrypt)
+express-session (to maintain sessions)
+redis(to maintain session faster. Can you postgreSQL too)
+connect-redis (for above too) with ts types
+
+
+/* How redis works roughly */
+
+req.session.userId = user.userId
+
+{userId: 1} -> send to redis
+
+sess: trtwerwe -> {userId:1} + secret
+
+express-session will set cookie on browser as data+secret(trtwerwe) maybe as 343243242gfdgfd
+
+when user makes a request:
+343243242gfdgfd -> sent to server 
+
+decrypt cookie
+343243242gfdgfd -> Sess: trtwerwe
+
+make request to redis with key
+Sess: trtwerwe -> {userId : 1}
+
+req.session = {userId : 1}
+
+/* finish */

@@ -2,15 +2,17 @@
 
 This is a clone of reddit (backend)
 
-What we need?
+What we need to know?
 TypeScript
 GraphQL
 Express
 Mikro-orm
-apollo-server 
+apollo-server
 PostgreSQL
+redis
+(make sure in grapghql GUI in settings you set request.credentials to "include" for cookies to work)
 
-/* You need to have postgreSQL installed and configured in your system */
+/_ You need to have postgreSQL, Redis installed and configured in your system _/
 
 Just download and run npm install to get everything.
 
